@@ -1,0 +1,8 @@
+{
+    "AutoDNA":{
+        "means":{
+            "PCC(Dev)": 0.52,
+            "PCC(Hk)": 0.65
+        }
+    }
+}

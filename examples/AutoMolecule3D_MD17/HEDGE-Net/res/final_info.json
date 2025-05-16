@@ -1,0 +1,8 @@
+{
+    "AutoMolecule3D":{
+        "means":{
+            "Scalar MAE": 0.118,
+            "Forces MAE": 0.149
+        }
+    }
+}

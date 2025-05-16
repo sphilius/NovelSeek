@@ -1,0 +1,1 @@
+{"cifar100": {"means": {"best_acc": 0.833299994468689, "epoch": 199}, "config": {"alpha": 0.6, "beta": 0.6, "gamma": 2.2, "memory_size": 5, "decay_rate": 2.0, "consistency_weight": 0.05, "auxiliary_weight": 0.05, "use_adaptive_aug": true, "use_temporal_consistency": true}}}
