@@ -17,7 +17,9 @@ NovelSeek can support **12** types of scientific research tasks ranging from the
 
 ![Framework](/images/framework.png)
 
-NovelSeek covers three main capabilities: (1) **Self-evolving idea generation with human-interactive feedback**, (2) **Idea-to-methodology construction**, and (3) **Evolutionary experimental planning and execution**. NovelSeek is a unified, closed-loop multi-agent system designed to automate and accelerate innovative research across scientific domains. Through intelligent agent collaboration, NovelSeek enables **end-to-end automation** from idea generation and methodology construction to experimental execution, dramatically enhancing research efficiency and creativity.
+NovelSeek covers three main capabilities: (1) **Self-evolving idea generation with human-interactive feedback**, (2) **Idea-to-methodology construction**, and (3) **Evolutionary experimental planning and execution**. 
+
+NovelSeek is a unified, closed-loop multi-agent system designed to automate and accelerate innovative research across scientific domains. Through intelligent agent collaboration, NovelSeek enables **end-to-end automation** from idea generation and methodology construction to experimental execution, dramatically enhancing research efficiency and creativity.
 
 ### 💡 Self-Evolving Idea Generation with Human-Interactive Feedback
 - Autonomous generation, selection, and evolution of innovative research ideas through multi-agent collaboration
