@@ -1,6 +1,6 @@
 # NovelSeek - When Agent Becomes the Scientist – Building Closed-Loop System from Hypothesis to Verification
 
-[[ Paper 📓 ]](https://github.com/Alpha-Innovator/NovelSeek) [[ Website 🏠 ]](https://github.com/Alpha-Innovator/NovelSeek) [[ NovelSeek Examples 🤗 ]](https://huggingface.co/U4R/NovelSeek)
+[[ Paper 📓 ]](https://github.com/Alpha-Innovator/NovelSeek) [[ Website 🏠 ]](https://alpha-innovator.github.io/NovelSeek-project-page) [[ NovelSeek Examples 🤗 ]](https://huggingface.co/U4R/NovelSeek)
 
 <i>
 From One Idea to Autonomous Experimentation
