@@ -43,7 +43,7 @@ class TrainingConfig:
     patience: int = 1
     max_grad_norm: float = 10.0
     warmup_ratio: float = 0.1
-    model_path: str = '/cpfs01/shared/MA4Tool/hug_ckpts/BERT_ckpt'
+    model_path: str = './hug_ckpts/BERT_ckpt'
     num_labels: int = 2
     if_save_model: bool = True
     out_dir: str = './run_0'
@@ -448,7 +448,7 @@ def main(out_dir):
         config = TrainingConfig(out_dir=out_dir)
         pathlib.Path(config.out_dir).mkdir(parents=True, exist_ok=True)
 
-        data_path = "/cpfs01/shared/MA4Tool/datasets/SST-2/"
+        data_path = "./datasets/SST-2/"
         train_df = pd.read_csv(
             os.path.join(data_path, "train.tsv"),
             sep='\t',
