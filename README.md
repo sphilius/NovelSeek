@@ -8,7 +8,7 @@ From One Idea to Autonomous Experimentation
 </div>
 
 # 🔥 News
-  - <p style='text-align:justify'><i>2025.06.02</i>: &nbsp; NovelSeek will be renamed **GeniX** in two days (meaning Genius + X, representing infinite possibilities). This change embodies our hopeful vision for autonomous scientific research framework, and we hope it will empower all researchers to achieve great scientific discoveries.</p>
+  - <p style='text-align:justify'><i>2025.06.02</i>: &nbsp; NovelSeek will be renamed <b>GeniX</b> in two days (<b>meaning Genius + X, representing infinite possibilities</b>). This change embodies our hopeful vision for autonomous scientific research framework, and we hope it will empower all researchers to achieve great scientific discoveries.</p>
 
 
 ## 📖 Overview
