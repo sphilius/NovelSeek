@@ -1,0 +1,348 @@
+<analysis>
+1. Repository Purpose and Applications
+   The NovelSeek/GeniX repository, while not directly providing code for your Voice-Controlled Agentic RAG AI, "Oracle," offers a rich conceptual blueprint. It's like finding an architect's detailed drawings for a skyscraper when you're planning to build a smart, adaptable house. GeniX's architecture, centered around a multi-agent system that transforms ideas into actionable methodologies via sophisticated orchestration, is highly relevant to Oracle's design.
+
+   Imagine Oracle, like GeniX, having a "Chief Idea Officer" agent that takes your voice commands (the "idea"). This agent then communicates with specialized "Researcher" agents. One might be a "Google Drive Detective" agent, another a "Gmail Guru" agent, and a third an "Obsidian Oracle" agent (pun intended!). These agents, guided by an "Orchestrator" agent (akin to GeniX's orchestration layer), would fetch and process information from these diverse sources.
+
+   The "idea-to-methodology" concept from GeniX is particularly potent. For Oracle, this means your spoken request ("Oracle, find my notes on the last AI conference and summarize the key trends") isn't just a simple search query. It becomes a "methodology":
+    1.  **Parse Voice Command**: Identify keywords ("notes," "AI conference," "summarize," "key trends").
+    2.  **Identify Data Sources**: Determine relevant sources (Obsidian for notes, potentially Gmail for related emails, Google Drive for presentations).
+    3.  **Query Dispatch**: Task the "Obsidian Oracle" agent to find notes tagged "AI conference." Task the "Gmail Guru" to search for emails about "AI conference." Task the "Google Drive Detective" to look for presentations.
+    4.  **Information Extraction & RAG**: Each agent uses its RAG capabilities to extract relevant text snippets.
+    5.  **Synthesis & Summarization**: An "Analyst" agent (or perhaps the "Chief Idea Officer" itself) synthesizes these snippets, identifies key trends, and generates a concise summary.
+    6.  **Voice Output**: Deliver the summary back to you via voice.
+
+   This multi-agent, orchestrated approach directly addresses your interest in RAG (by having specialized agents perform retrieval from their respective sources) and agentic programming (the agents collaborate to fulfill the request). GeniX's focus on transforming abstract ideas into concrete outputs aligns perfectly with Oracle's goal of being a powerful, voice-controlled assistant that understands and acts upon your requests by intelligently accessing and synthesizing information from your personal knowledge ecosystem. The "pluggable" nature of GeniX's components also suggests that Oracle could be designed to easily incorporate new knowledge sources or agent capabilities in the future.
+
+2. Implementation, Testing, and Deployment Roadmap
+
+   Here's the technicolor roadmap for bringing Oracle to life, phase by phase:
+
+   **Phase 1: Core RAG Engine & Basic Voice Interaction (The Seedling 🌱)**
+   *   **Focus**: Building the foundational RAG pipeline and enabling initial voice commands for a single, structured knowledge source.
+   *   **Color Code**: Forest Green 🌲
+   *   **Time Estimate**: 6-8 Weeks
+
+   *   **Tasks**:
+        *   **1.1 Setup Development Environment (Forest Green 🌲)**:
+            *   1.1.1 Initialize Git repository.
+            *   1.1.2 Choose primary programming language (e.g., Python) and set up virtual environment.
+            *   1.1.3 Install core libraries: Speech-to-Text (STT), Text-to-Speech (TTS), basic NLP (e.g., spaCy or NLTK), vector database (e.g., FAISS, ChromaDB), LLM framework (e.g., Langchain, LlamaIndex).
+        *   **1.2 Develop Core RAG Engine (Forest Green 🌲)**:
+            *   1.2.1 Implement document loader for a single chosen source (e.g., Obsidian markdown files).
+            *   1.2.2 Implement text chunking/splitting.
+            *   1.2.3 Implement embedding generation (e.g., using Sentence Transformers).
+            *   1.2.4 Implement vector store indexing and similarity search.
+            *   1.2.5 Integrate a base LLM for answer generation based on retrieved context.
+        *   **1.3 Basic Voice Interface (Forest Green 🌲)**:
+            *   1.3.1 Integrate STT library to capture voice input.
+            *   1.3.2 Basic intent recognition (e.g., "Oracle, find X," "Oracle, what is Y?").
+            *   1.3.3 Integrate TTS library for voice responses.
+        *   **1.4 Orchestration Agent v0.1 (The Seed Sower 🌱)**:
+            *   1.4.1 Design initial logic for receiving voice input, passing to RAG, and returning output.
+
+   *   **Testing**:
+        *   Unit tests for document loading, chunking, embedding, vector search.
+        *   Integration tests for the STT -> RAG -> TTS pipeline.
+        *   Manual testing of voice commands with a small, curated dataset from the chosen knowledge source.
+        *   **Key Metric**: Can Oracle accurately retrieve and vocalize answers from the initial knowledge source based on simple voice queries?
+
+   *   **Deployment**:
+        *   Local deployment on your development machine.
+        *   Basic CLI or simple GUI for interaction and logging.
+
+   **Phase 2: Enhancing Agents & Adding Knowledge Sources (The Sapling 🌳)**
+   *   **Focus**: Expanding to more knowledge sources, refining agent interactions, and improving natural language understanding.
+   *   **Color Code**: Sky Blue ☁️
+   *   **Time Estimate**: 8-10 Weeks
+
+   *   **Tasks**:
+        *   **2.1 Integrate Google Drive Agent (Sky Blue ☁️)**:
+            *   2.1.1 Develop document loader for Google Drive (Docs, Sheets, Slides - text extraction).
+            *   2.1.2 Implement OAuth2 for secure Google Drive access.
+            *   2.1.3 Adapt RAG pipeline for Google Drive content.
+            *   2.1.4 Create "Google Drive Detective" agent.
+        *   **2.2 Integrate Gmail Agent (Sky Blue ☁️)**:
+            *   2.2.1 Develop email fetching capability (consider privacy and filtering).
+            *   2.2.2 Implement text extraction from emails.
+            *   2.2.3 Adapt RAG pipeline for Gmail content.
+            *   2.2.4 Create "Gmail Guru" agent.
+        *   **2.3 Improve Orchestration Agent v0.2 (The Branch Manager 🌿)**:
+            *   2.3.1 Develop logic to route queries to the appropriate knowledge agent (Obsidian, Drive, Gmail) or multiple if necessary.
+            *   2.3.2 Basic result aggregation if multiple sources are queried.
+        *   **2.4 Enhance NLP & Intent Recognition (Sky Blue ☁️)**:
+            *   2.4.1 Implement more sophisticated intent classification (e.g., "summarize X," "compare X and Y," "find emails about Z").
+            *   2.4.2 Entity extraction (dates, names, topics).
+        *   **2.5 User Feedback Mechanism (Sky Blue ☁️)**:
+            *   2.5.1 Simple way to mark answers as helpful/unhelpful (e.g., voice command "Oracle, that was good/bad").
+
+   *   **Testing**:
+        *   Unit tests for new document loaders and agent-specific logic.
+        *   Integration tests for multi-source queries.
+        *   Testing OAuth flows and API integrations.
+        *   Manual testing with more complex queries spanning multiple sources.
+        *   **Key Metric**: Can Oracle retrieve and synthesize information from Obsidian, Google Drive, and Gmail based on more nuanced voice commands?
+
+   *   **Deployment**:
+        *   Still local, but with more robust logging and configuration options.
+        *   Consider containerization (e.g., Docker) for easier dependency management.
+
+   **Phase 3: Advanced Agent Capabilities & Personalization (The Mighty Oak 🌳)**
+   *   **Focus**: Enabling agents to perform more complex tasks, learn from interactions, and personalize responses.
+   *   **Color Code**: Royal Purple 👑
+   *   **Time Estimate**: 10-12 Weeks
+
+   *   **Tasks**:
+        *   **3.1 Agentic Task Execution (Royal Purple 👑)**:
+            *   3.1.1 Define simple tasks agents can perform (e.g., "Oracle, create a new note in Obsidian about X," "Oracle, draft an email to Y about Z").
+            *   3.1.2 Implement API interactions for task execution (Obsidian URI schemes, Gmail API for drafts).
+            *   3.1.3 Confirmation steps via voice ("Oracle, should I create this note?").
+        *   **3.2 Contextual Memory & Personalization (Royal Purple 👑)**:
+            *   3.2.1 Implement short-term memory for conversational context (remembering the last few turns).
+            *   3.2.2 Start logging user preferences and frequently accessed information types (with explicit consent).
+            *   3.2.3 Basic personalization: e.g., prioritizing search in frequently used sources.
+        *   **3.3 Advanced Orchestration Agent v0.3 (The Chief Conductor 🎼)**:
+            *   3.3.1 Implement more sophisticated strategies for query decomposition and multi-agent coordination.
+            *   3.3.2 Handling ambiguous queries by asking clarifying questions.
+            *   3.3.3 Error handling and graceful degradation (e.g., "I couldn't access Gmail, but I found this in Obsidian...").
+        *   **3.4 Knowledge Graph Exploration (Optional) (Royal Purple 👑)**:
+            *   3.4.1 If data structure allows, begin exploring connections between notes/documents to provide related information.
+        *   **3.5 User Authentication & Security (Royal Purple 👑)**:
+            *   3.5.1 Implement basic user authentication if Oracle is to be accessed from multiple devices or by multiple users (future consideration).
+
+   *   **Testing**:
+        *   Tests for agentic task execution (e.g., was the note created? was the email drafted?).
+        *   Tests for contextual memory (does Oracle remember the topic of conversation?).
+        *   Testing personalization effects (are search results improving based on usage?).
+        *   Security testing for task execution APIs.
+        *   **Key Metric**: Can Oracle not only retrieve information but also perform simple tasks and demonstrate basic learning/personalization?
+
+   *   **Deployment**:
+        *   Consider a dedicated local server (e.g., a Raspberry Pi or old laptop) for continuous operation.
+        *   Refine UI/CLI for better administration.
+
+   **Phase 4: Specialized Skills & Broader Integrations (The World Tree 🌍)**
+   *   **Focus**: Adding specialized agent skills (e.g., coding assistance, web browsing), integrating with more external services, and refining the user experience.
+   *   **Color Code**: Golden Sun ☀️
+   *   **Time Estimate**: 12-16 Weeks
+
+   *   **Tasks**:
+        *   **4.1 Web Browsing Agent (Golden Sun ☀️)**:
+            *   4.1.1 Integrate a capability for agents to fetch and process information from live websites (e.g., using libraries like `requests` and `BeautifulSoup`).
+            *   4.1.2 RAG pipeline for web content (summarization, key info extraction).
+            *   4.1.3 "Web Navigator" agent.
+        *   **4.2 Coding Assistant Agent (Optional) (Golden Sun ☀️)**:
+            *   4.2.1 Fine-tune an LLM or use a specialized model for code-related queries.
+            *   4.2.2 Agent to understand coding questions, suggest snippets, explain code (read-only at first).
+        *   **4.3 Calendar & Task Management Integration (Golden Sun ☀️)**:
+            *   4.3.1 Connect to Google Calendar, Todoist, or similar.
+            *   4.3.2 Agent to read calendar events, create tasks via voice.
+        *   **4.4 Advanced Personalization & Proactive Assistance (Golden Sun ☀️)**:
+            *   4.4.1 Oracle learns routines and might proactively offer information (e.g., "You have a meeting at 2 PM, here's the related document").
+            *   4.4.2 User-configurable notification preferences.
+        *   **4.5 Scalability and Robustness (Golden Sun ☀️)**:
+            *   4.5.1 Optimize vector database performance.
+            *   4.5.2 Improve error logging and system monitoring.
+            *   4.5.3 Refactor code for maintainability and scalability.
+
+   *   **Testing**:
+        *   Tests for web browsing agent (accuracy of information, handling of different website structures).
+        *   Tests for any specialized skills (e.g., code suggestions, calendar interactions).
+        *   Long-term stability and performance testing.
+        *   User experience testing with a wider range of complex, multi-step commands.
+        *   **Key Metric**: Can Oracle act as a comprehensive, personalized, and proactive assistant across a wide range of information sources and tasks?
+
+   *   **Deployment**:
+        *   More permanent local server setup.
+        *   Consider options for secure remote access if desired (e.g., VPN, Tailscale).
+        *   Documentation for setup, configuration, and troubleshooting.
+
+   **General Tools & Practices (Rainbow Bridge 🌈 - Applied Throughout)**:
+    *   **Version Control (Git)**: Commit frequently, use meaningful messages, branch for features.
+    *   **Agile Principles**: Iterative development, welcome feedback, adapt to changing requirements.
+    *   **Modular Design**: Build Oracle in components (agents, services) for easier updates and maintenance.
+    *   **Consistent Logging**: Essential for debugging and understanding Oracle's "thought process."
+    *   **Configuration Management**: Separate configuration (API keys, paths) from code.
+    *   **Regular Backups**: Protect your work and Oracle's learned data (if applicable).
+    *   **User-Centric Design**: Continuously think about how *you* will use Oracle and what makes it most helpful.
+
+3. Work Breakdown Structure
+
+   **Oracle WBS - Color-Coded by Phase**
+
+   **Phase 1: Core RAG Engine & Basic Voice Interaction (Forest Green 🌲)**
+   *   **1.0 Project Setup & Core Development (6-8 Weeks)**
+        *   **1.1 Setup Development Environment (Forest Green 🌲) (1 Week)**
+            *   1.1.1 Initialize Git repository (0.1 Day)
+            *   1.1.2 Choose language & set up environment (Python, venv) (0.2 Day)
+            *   1.1.3 Install core libraries (STT, TTS, NLP, vector DB, LLM framework) (0.5 Day)
+            *   1.1.4 Basic "Hello Oracle" voice test (0.2 Day)
+        *   **1.2 Develop Core RAG Engine (Forest Green 🌲) (3-4 Weeks)**
+            *   1.2.1 Implement document loader (Obsidian Markdown) (1 Week)
+                *   1.2.1.1 File discovery and reading (0.3 Day)
+                *   1.2.1.2 Metadata extraction (tags, titles) (0.4 Day)
+                *   1.2.1.3 Initial content cleaning (0.3 Day)
+            *   1.2.2 Implement text chunking/splitting (0.5 Week)
+                *   1.2.2.1 Research strategies (fixed size, semantic) (0.1 Day)
+                *   1.2.2.2 Implement chosen strategy (0.4 Day)
+            *   1.2.3 Implement embedding generation (Sentence Transformers) (0.5 Week)
+                *   1.2.3.1 Model selection (0.1 Day)
+                *   1.2.3.2 API/library integration (0.4 Day)
+            *   1.2.4 Implement vector store (FAISS/ChromaDB) (1 Week)
+                *   1.2.4.1 Setup and configuration (0.2 Day)
+                *   1.2.4.2 Indexing pipeline (0.4 Day)
+                *   1.2.4.3 Similarity search implementation (0.4 Day)
+            *   1.2.5 Integrate base LLM (Langchain/LlamaIndex) (1 Week)
+                *   1.2.5.1 LLM selection and API access (0.2 Day)
+                *   1.2.5.2 Prompt engineering for RAG (0.5 Day)
+                *   1.2.5.3 Connecting retrieval to generation (0.3 Day)
+        *   **1.3 Basic Voice Interface (Forest Green 🌲) (1-2 Weeks)**
+            *   1.3.1 Integrate STT library (0.5 Week)
+            *   1.3.2 Basic intent recognition ("find X") (0.5 Week)
+            *   1.3.3 Integrate TTS library (0.5 Week)
+        *   **1.4 Orchestration Agent v0.1 (The Seed Sower 🌱) (0.5 Week)**
+            *   1.4.1 Design initial STT -> RAG -> TTS flow (0.5 Week)
+        *   **1.5 Testing & Refinement (Forest Green 🌲) (1 Week)**
+            *   1.5.1 Unit tests for RAG components (0.5 Week)
+            *   1.5.2 Integration test for voice pipeline (0.3 Day)
+            *   1.5.3 Manual testing with Obsidian dataset (0.2 Day)
+
+   **Phase 2: Enhancing Agents & Adding Knowledge Sources (Sky Blue ☁️)**
+   *   **2.0 Multi-Source Integration & NLP Enhancement (8-10 Weeks)**
+        *   **2.1 Integrate Google Drive Agent (Sky Blue ☁️) (2-3 Weeks)**
+            *   2.1.1 Google API setup & OAuth2 (0.5 Week)
+            *   2.1.2 Document loader for Drive (Docs, Sheets text) (1 Week)
+            *   2.1.3 Adapt RAG for Drive content (0.5 Week)
+            *   2.1.4 Create "Google Drive Detective" agent class (0.5 Week)
+        *   **2.2 Integrate Gmail Agent (Sky Blue ☁️) (2-3 Weeks)**
+            *   2.2.1 Gmail API setup & OAuth2 (0.5 Week)
+            *   2.2.2 Email fetching and text extraction (1 Week)
+            *   2.2.3 Adapt RAG for Gmail content (0.5 Week)
+            *   2.2.4 Create "Gmail Guru" agent class (0.5 Week)
+        *   **2.3 Improve Orchestration Agent v0.2 (The Branch Manager 🌿) (1.5 Weeks)**
+            *   2.3.1 Query routing logic (source selection) (1 Week)
+            *   2.3.2 Basic multi-source result aggregation (0.5 Week)
+        *   **2.4 Enhance NLP & Intent Recognition (Sky Blue ☁️) (1.5 Weeks)**
+            *   2.4.1 Advanced intent classification model/logic (1 Week)
+            *   2.4.2 Entity extraction implementation (0.5 Week)
+        *   **2.5 User Feedback Mechanism (Sky Blue ☁️) (0.5 Week)**
+            *   2.5.1 Implement voice commands for feedback (0.3 Day)
+            *   2.5.2 Basic feedback logging (0.2 Day)
+        *   **2.6 Testing & Refinement (Sky Blue ☁️) (1 Week)**
+            *   2.6.1 Unit tests for new agents & NLP (0.5 Week)
+            *   2.6.2 Integration tests for multi-source queries (0.5 Week)
+
+   **Phase 3: Advanced Agent Capabilities & Personalization (Royal Purple 👑)**
+   *   **3.0 Agentic Actions & Learning (10-12 Weeks)**
+        *   **3.1 Agentic Task Execution (Royal Purple 👑) (3-4 Weeks)**
+            *   3.1.1 Define schema for tasks (create note, draft email) (0.5 Week)
+            *   3.1.2 Implement Obsidian note creation via URI (1 Week)
+            *   3.1.3 Implement Gmail draft creation via API (1.5 Weeks)
+            *   3.1.4 Voice confirmation for actions (0.5 Week)
+        *   **3.2 Contextual Memory & Personalization (Royal Purple 👑) (3 Weeks)**
+            *   3.2.1 Implement short-term conversational memory (1 Week)
+            *   3.2.2 Logging user preferences & access patterns (1 Week)
+            *   3.2.3 Basic personalization logic (e.g., source prioritization) (1 Week)
+        *   **3.3 Advanced Orchestration Agent v0.3 (The Chief Conductor 🎼) (2-3 Weeks)**
+            *   3.3.1 Query decomposition strategies (1 Week)
+            *   3.3.2 Clarifying question logic (0.5 Week)
+            *   3.3.3 Advanced error handling & fallback (1 Week)
+        *   **3.4 Knowledge Graph Exploration (Optional) (Royal Purple 👑) (1 Week)**
+            *   3.4.1 Investigate KG data structures (0.5 Week)
+            *   3.4.2 Basic KG traversal for related info (0.5 Week)
+        *   **3.5 User Authentication & Security (Royal Purple 👑) (0.5 Week)**
+            *   3.5.1 Basic local user auth mechanism (0.5 Week)
+        *   **3.6 Testing & Refinement (Royal Purple 👑) (1 Week)**
+            *   3.6.1 Tests for task execution & memory (0.5 Week)
+            *   3.6.2 Personalization effectiveness testing (0.5 Week)
+
+   **Phase 4: Specialized Skills & Broader Integrations (Golden Sun ☀️)**
+   *   **4.0 Expanding Horizons (12-16 Weeks)**
+        *   **4.1 Web Browsing Agent (Golden Sun ☀️) (3-4 Weeks)**
+            *   4.1.1 Web fetching & HTML parsing (1 Week)
+            *   4.1.2 RAG for web content (summarization, extraction) (1.5 Weeks)
+            *   4.1.3 Create "Web Navigator" agent (0.5 Week)
+            *   4.1.4 Safe browsing considerations (0.5 Week)
+        *   **4.2 Coding Assistant Agent (Optional) (Golden Sun ☀️) (3-4 Weeks)**
+            *   4.2.1 Research/select code LLM or fine-tuning approach (1 Week)
+            *   4.2.2 Integrate code LLM for queries/explanation (1.5 Weeks)
+            *   4.2.3 "Code Companion" agent logic (0.5 Week)
+        *   **4.3 Calendar & Task Management Integration (Golden Sun ☀️) (2-3 Weeks)**
+            *   4.3.1 API integration for Google Calendar (1 Week)
+            *   4.3.2 API integration for Todoist/other (1 Week)
+            *   4.3.3 Agent logic for reading/creating events/tasks (1 Week)
+        *   **4.4 Advanced Personalization & Proactive Assistance (Golden Sun ☀️) (2-3 Weeks)**
+            *   4.4.1 Learning user routines for proactive suggestions (1.5 Weeks)
+            *   4.4.2 Configurable notifications system (1 Week)
+        *   **4.5 Scalability and Robustness (Golden Sun ☀️) (1-2 Weeks)**
+            *   4.5.1 Performance optimization (vector DB, queries) (0.5 Week)
+            *   4.5.2 Enhanced logging and monitoring (0.5 Week)
+            *   4.5.3 Code refactoring and documentation (1 Week)
+        *   **4.6 Testing & Refinement (Golden Sun ☀️) (1 Week)**
+            *   4.6.1 Tests for specialized skills (web, code, calendar) (0.5 Week)
+            *   4.6.2 Long-term stability & UX testing (0.5 Week)
+
+4. OKRs and KPIs
+
+   **Oracle Project: Objectives, Key Results, and Key Performance Indicators**
+
+   **Overarching Project Goal (The North Star ✨)**: To create "Oracle," a highly effective, voice-controlled agentic RAG AI that seamlessly integrates with personal knowledge sources (Obsidian, Google Drive, Gmail, etc.) to provide accurate information, execute tasks, and offer personalized assistance, becoming an indispensable tool for learning, productivity, and knowledge management.
+
+   **Objective 1: Develop a Core RAG AI with Reliable Voice Interaction (The Seedling 🌱 - Forest Green 🌲)**
+   *   **Key Results**:
+        *   KR1.1: Successfully implement a RAG pipeline capable of ingesting, indexing, and retrieving information from at least one structured knowledge source (Obsidian).
+        *   KR1.2: Enable basic voice command recognition (STT) and response generation (TTS) for querying the RAG pipeline.
+        *   KR1.3: Achieve 80% accuracy in retrieving relevant documents from the initial knowledge source for simple, well-defined queries.
+   *   **Key Performance Indicators**:
+        *   KPI 1.1.1: Time to ingest and index 100 new notes: < X minutes.
+        *   KPI 1.1.2: Percentage of successful document retrievals from top-5 results for test queries: > 80%.
+        *   KPI 1.2.1: Word Error Rate (WER) for STT: < 15% for clear speech.
+        *   KPI 1.2.2: Latency from voice command to voice response: < 3 seconds for simple queries.
+        *   KPI 1.3.1: User satisfaction score (qualitative feedback on relevance and speed for Phase 1 features): > 3.5/5.
+
+   **Objective 2: Expand Knowledge Base and Agent Capabilities (The Sapling 🌳 - Sky Blue ☁️)**
+   *   **Key Results**:
+        *   KR2.1: Integrate at least two additional knowledge sources (Google Drive, Gmail) into the RAG system.
+        *   KR2.2: Develop an orchestration agent capable of routing queries to the appropriate knowledge source(s).
+        *   KR2.3: Improve intent recognition to understand at least 5 distinct command types (e.g., find, summarize, compare).
+        *   KR2.4: Reduce query processing time for multi-source queries by 20% compared to sequential individual queries.
+   *   **Key Performance Indicators**:
+        *   KPI 2.1.1: Number of supported knowledge sources: 3 (Obsidian, GDrive, Gmail).
+        *   KPI 2.2.1: Percentage of queries correctly routed to the relevant agent(s): > 90%.
+        *   KPI 2.2.2: Success rate for retrieving information from any of the integrated sources: > 75%.
+        *   KPI 2.3.1: Accuracy of intent classification for predefined command types: > 85%.
+        *   KPI 2.4.1: Average query latency for multi-source queries: < 5 seconds.
+
+   **Objective 3: Enhance Interaction with Agentic Actions and Personalization (The Mighty Oak 🌳 - Royal Purple 👑)**
+   *   **Key Results**:
+        *   KR3.1: Enable Oracle to perform at least two distinct tasks via voice command (e.g., create a note, draft an email).
+        *   KR3.2: Implement basic conversational memory, allowing Oracle to understand context from the last 2-3 interactions.
+        *   KR3.3: Demonstrate personalization by showing a 15% improvement in relevance or speed for frequently performed queries or accessed data types after a learning period.
+        *   KR3.4: Implement a mechanism for Oracle to ask clarifying questions for ambiguous queries in 50% of identified cases.
+   *   **Key Performance Indicators**:
+        *   KPI 3.1.1: Success rate of task completion (e.g., note created, email drafted correctly): > 90%.
+        *   KPI 3.1.2: User effort reduction for performed tasks (qualitative feedback or time saved).
+        *   KPI 3.2.1: Percentage of conversational follow-up questions correctly understood using context: > 70%.
+        *   KPI 3.3.1: Click-Through Rate (CTR) or acceptance rate of personalized suggestions/prioritized results: Increase by 15%.
+        *   KPI 3.4.1: Reduction in "no useful result" responses due to clarification: > 30%.
+
+   **Objective 4: Achieve Specialized Skills and Broad Integration (The World Tree 🌍 - Golden Sun ☀️)**
+   *   **Key Results**:
+        *   KR4.1: Integrate at least one external service skill (e.g., web browsing for live information, calendar management).
+        *   KR4.2: (Optional) Implement a functional coding assistant agent capable of answering basic coding questions or explaining snippets.
+        *   KR4.3: Develop basic proactive assistance features, offering relevant information or reminders without direct user query at least once per day (configurable).
+        *   KR4.4: Maintain system stability with an uptime of > 99% for the dedicated local server.
+   *   **Key Performance Indicators**:
+        *   KPI 4.1.1: Success rate of web information retrieval and summarization for defined tasks: > 70%.
+        *   KPI 4.1.2: User satisfaction with calendar/task management integration: > 4.0/5.
+        *   KPI 4.2.1: (Optional) Accuracy/Helpfulness score for coding assistant responses: > 3.0/5.
+        *   KPI 4.3.1: User acceptance rate of proactive suggestions: > 50%.
+        *   KPI 4.4.1: Number of system crashes or major errors requiring manual restart: < 1 per week.
+
+   **General Project Health KPIs (Rainbow Bridge 🌈 - Applied Throughout)**:
+    *   **KPI G.1**: Adherence to phase timeline estimates: Within +/- 15%.
+    *   **KPI G.2**: Number of critical bugs identified post-phase "release": < 3 per phase.
+    *   **KPI G.3**: User (Your) satisfaction with Oracle's capabilities at the end of each phase (survey/rating): Consistently improving and >= 4.0/5 by Phase 4.
+    *   **KPI G.4**: Code coverage by automated tests: Target > 70% for new code in each phase.
+    *   **KPI G.5**: Frequency of use (how often you naturally turn to Oracle): Increasing phase over phase.
+</analysis>
